@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'hero': "./assets/images/herobg.jpg"
+      },
       fontFamily: {
         'Poppins': 'Poppins, sans-serif',
       }

@@ -100,158 +100,160 @@ function App() {
     });
   };
   return (
-    <div className="max-w-[800px] mx-auto">
-      <h1 className='text-black font-bold text-center text-5xl my-5'>Form Validation</h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
-        <div className="md:flex items-center justify-between gap-10">
-          <div className="form-group w-full">
+    <div classname="bg-hero bg-cover bg-center bg-no-repeat">
+      <div className="max-w-[800px] mx-auto">
+        <h1 className='text-black font-bold text-center text-5xl my-5'>Form Validation</h1>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
+          <div className="md:flex items-center justify-between gap-10">
+            <div className="  w-full">
+              <label
+                className="font-normal text-[#131200] text-[16px] opacity-[70%]"
+                htmlFor="name"
+              >
+                Name
+              </label>
+              <input
+                className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              {formErrors.name && (
+                <p className="error-message">{formErrors.name}</p>
+              )}
+            </div>
+            <div className="  w-full">
+              <label
+                className="font-normal text-[#131200] text-[16px] opacity-[70%]"
+                htmlFor="lastname"
+              >
+                Lastname
+              </label>
+              <input
+                className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
+                type="text"
+                id="lastname"
+                name="lastname"
+                value={formData.lastname}
+                onChange={handleChange}
+              />
+              {formErrors.lastname && (
+                <p className="error-message">{formErrors.lastname}</p>
+              )}
+            </div>
+          </div>
+          <div className=" ">
             <label
               className="font-normal text-[#131200] text-[16px] opacity-[70%]"
-              htmlFor="name"
+              htmlFor="number"
             >
-              Name
+              Number
             </label>
             <input
               className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
+              type="number"
+              id="number"
+              name="number"
+              value={formData.number}
               onChange={handleChange}
             />
-            {formErrors.name && (
-              <p className="error-message">{formErrors.name}</p>
+            {formErrors.number && (
+              <p className="error-message">{formErrors.number}</p>
             )}
           </div>
-          <div className="form-group w-full">
+          <div className=" ">
+            <label
+              className="font-normal text-[#131200] text-[16px] opacity-[70%]"
+              htmlFor="email"
+            >
+              Email
+            </label>
+            <input
+              className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {formErrors.email && (
+              <p className="error-message">{formErrors.email}</p>
+            )}
+          </div>
+          <div className="  w-full">
             <label
               className="font-normal text-[#131200] text-[16px] opacity-[70%]"
               htmlFor="lastname"
             >
-              Lastname
+              Message
             </label>
-            <input
-              className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
+            <textarea
+              className="outline-none border-solid border-[1px] border-[#13120033] w-full p-[11px] rounded-[5px] resize-none"
               type="text"
-              id="lastname"
-              name="lastname"
-              value={formData.lastname}
+              id="message"
+              name="message"
+              value={formData.message}
               onChange={handleChange}
             />
-            {formErrors.lastname && (
-              <p className="error-message">{formErrors.lastname}</p>
+            {formErrors.message && (
+              <p className="error-message">{formErrors.message}</p>
             )}
           </div>
-        </div>
-        <div className="form-group">
-          <label
-            className="font-normal text-[#131200] text-[16px] opacity-[70%]"
-            htmlFor="number"
-          >
-            Number
-          </label>
-          <input
-            className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
-            type="number"
-            id="number"
-            name="number"
-            value={formData.number}
-            onChange={handleChange}
-          />
-          {formErrors.number && (
-            <p className="error-message">{formErrors.number}</p>
-          )}
-        </div>
-        <div className="form-group">
-          <label
-            className="font-normal text-[#131200] text-[16px] opacity-[70%]"
-            htmlFor="email"
-          >
-            Email
-          </label>
-          <input
-            className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {formErrors.email && (
-            <p className="error-message">{formErrors.email}</p>
-          )}
-        </div>
-        <div className="form-group w-full">
-          <label
-            className="font-normal text-[#131200] text-[16px] opacity-[70%]"
-            htmlFor="lastname"
-          >
-            Message
-          </label>
-          <textarea
-            className="outline-none border-solid border-[1px] border-[#13120033] w-full p-[11px] rounded-[5px] resize-none"
-            type="text"
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-          />
-          {formErrors.message && (
-            <p className="error-message">{formErrors.message}</p>
-          )}
-        </div>
-        <div className="md:flex items-center justify-between gap-10">
-          <div className="form-group w-full">
-            <label
-              className="font-normal text-[#131200] text-[16px] opacity-[70%]"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-            {formErrors.password && (
-              <p className="error-message">{formErrors.password}</p>
-            )}
+          <div className="md:flex items-center justify-between gap-10">
+            <div className="  w-full">
+              <label
+                className="font-normal text-[#131200] text-[16px] opacity-[70%]"
+                htmlFor="password"
+              >
+                Password
+              </label>
+              <input
+                className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+              {formErrors.password && (
+                <p className="error-message">{formErrors.password}</p>
+              )}
+            </div>
+            <div className="  w-full">
+              <label
+                className="font-normal text-[#131200] text-[16px] opacity-[70%]"
+                htmlFor="confirmPassword"
+              >
+                ConfirmPassword
+              </label>
+              <input
+                className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+              />
+              {formErrors.confirmPassword && (
+                <p className="error-message">{formErrors.confirmPassword}</p>
+              )}
+            </div>
           </div>
-          <div className="form-group w-full">
-            <label
-              className="font-normal text-[#131200] text-[16px] opacity-[70%]"
-              htmlFor="confirmPassword"
-            >
-              ConfirmPassword
-            </label>
-            <input
-              className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-            />
-            {formErrors.confirmPassword && (
-              <p className="error-message">{formErrors.confirmPassword}</p>
-            )}
+          <div className="flex lg:justify-start justify-center items-center mt-[10px]">
+            <button className="py-3.5 px-6 rounded-md bg-black text-white text-center" >Submit</button>
           </div>
-        </div>
-        <div className="flex lg:justify-start justify-center items-center mt-[10px]">
-          <button className="py-3.5 px-6 rounded-md bg-black text-white text-center" >Submit</button>
-        </div>
-      </form>
-      {showSuccessPopup && (
-        <div className="success-popup">
-          <div className="success-popup-box">
-            <p className="mb-[10px]">Your form submitted successfully!</p>
-            <button onClick={handlePopupClose}>Close</button>
+        </form>
+        {showSuccessPopup && (
+          <div className="success-popup">
+            <div className="success-popup-box">
+              <p className="mb-[10px]">Your form submitted successfully!</p>
+              <button onClick={handlePopupClose}>Close</button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
