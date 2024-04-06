@@ -1,8 +1,20 @@
 import './App.css';
 import React, { useState } from "react";
+import open from "../src/assets/images/openeye.png"
+import close from "../src/assets/images/closeeye.png"
 
 
 function App() {
+  // -------eye-icon-
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordcon, setShowPasswordcon] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const togglePasswordconVisibility = () => {
+    setShowPasswordcon(!showPasswordcon);
+  };
   const [formData, setFormData] = useState({
     name: "",
     lastname: "",
@@ -27,7 +39,6 @@ function App() {
   } else {
     document.body.classList.remove("overflow-hidden");
   }
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -100,12 +111,12 @@ function App() {
     });
   };
   return (
-    <div classname="bg-hero bg-cover bg-center bg-no-repeat">
+    <div classname="bg-hero-pettern bg-cover bg-center bg-no-repeat">
       <div className="max-w-[800px] mx-auto">
         <h1 className='text-black font-bold text-center text-5xl my-5'>Form Validation</h1>
         <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
           <div className="md:flex items-center justify-between gap-10">
-            <div className="  w-full">
+            <div className="w-full">
               <label
                 className="font-normal text-[#131200] text-[16px] opacity-[70%]"
                 htmlFor="name"
@@ -124,7 +135,7 @@ function App() {
                 <p className="error-message">{formErrors.name}</p>
               )}
             </div>
-            <div className="  w-full">
+            <div className="w-full">
               <label
                 className="font-normal text-[#131200] text-[16px] opacity-[70%]"
                 htmlFor="lastname"
@@ -144,7 +155,7 @@ function App() {
               )}
             </div>
           </div>
-          <div className=" ">
+          <div>
             <label
               className="font-normal text-[#131200] text-[16px] opacity-[70%]"
               htmlFor="number"
@@ -163,7 +174,7 @@ function App() {
               <p className="error-message">{formErrors.number}</p>
             )}
           </div>
-          <div className=" ">
+          <div>
             <label
               className="font-normal text-[#131200] text-[16px] opacity-[70%]"
               htmlFor="email"
@@ -182,7 +193,7 @@ function App() {
               <p className="error-message">{formErrors.email}</p>
             )}
           </div>
-          <div className="  w-full">
+          <div className="w-full">
             <label
               className="font-normal text-[#131200] text-[16px] opacity-[70%]"
               htmlFor="lastname"
@@ -202,40 +213,50 @@ function App() {
             )}
           </div>
           <div className="md:flex items-center justify-between gap-10">
-            <div className="  w-full">
+            <div className="w-full relative">
               <label
                 className="font-normal text-[#131200] text-[16px] opacity-[70%]"
                 htmlFor="password"
               >
                 Password
               </label>
-              <input
-                className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
+              <div className='relative'>
+                <input
+                  className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={(e) => handleChange(e)}
+                />
+                <button onClick={togglePasswordVisibility} className="absolute end-2 top-3">
+                  {showPassword ? <img src={open} width={25} height={25} /> : <img src={close} width={25} height={25} />}
+                </button>
+              </div>
               {formErrors.password && (
                 <p className="error-message">{formErrors.password}</p>
               )}
             </div>
-            <div className="  w-full">
+            <div className="w-full">
               <label
                 className="font-normal text-[#131200] text-[16px] opacity-[70%]"
                 htmlFor="confirmPassword"
               >
                 ConfirmPassword
               </label>
-              <input
-                className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-              />
+              <div className='relative'>
+                <input
+                  className="outline-none border-solid border-[1px] border-[#13120033] p-[11px] w-full rounded-[5px]"
+                  type={showPasswordcon ? "text" : "password"}
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={(e) => handleChange(e)}
+                />
+                <button onClick={togglePasswordconVisibility} className="absolute end-2 top-3">
+                  {showPasswordcon ? <img src={open} width={25} height={25} /> : <img src={close} width={25} height={25} />}
+                </button>
+              </div>
               {formErrors.confirmPassword && (
                 <p className="error-message">{formErrors.confirmPassword}</p>
               )}
