@@ -229,9 +229,9 @@ function App() {
                   value={formData.password}
                   onChange={(e) => handleChange(e)}
                 />
-                <button onClick={togglePasswordVisibility} className="absolute end-2 top-3">
+                <div onClick={togglePasswordVisibility} className="absolute end-2 top-3">
                   {showPassword ? <img src={open} width={25} height={25} /> : <img src={close} width={25} height={25} />}
-                </button>
+                </div>
               </div>
               {formErrors.password && (
                 <p className="error-message">{formErrors.password}</p>
@@ -253,9 +253,9 @@ function App() {
                   value={formData.confirmPassword}
                   onChange={(e) => handleChange(e)}
                 />
-                <button onClick={togglePasswordconVisibility} className="absolute end-2 top-3">
+                <div onClick={togglePasswordconVisibility} className="absolute end-2 top-3">
                   {showPasswordcon ? <img src={open} width={25} height={25} /> : <img src={close} width={25} height={25} />}
-                </button>
+                </div>
               </div>
               {formErrors.confirmPassword && (
                 <p className="error-message">{formErrors.confirmPassword}</p>
